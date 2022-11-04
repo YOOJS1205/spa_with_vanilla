@@ -1,2 +1,5 @@
-# finalCodingTest_template
-과제진행에 필요한 에셋을 포함한 템플릿입니다.
+# Vanilla JS로 Single Page Application 구현하기
+
+## 기본 흐름
+
+`index.js` -> `app.js`
