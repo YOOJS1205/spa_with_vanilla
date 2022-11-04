@@ -1,5 +1,5 @@
 @charset "urt-8";
-@import "reset.css";
+@import "./reset.css";
 
 :root {
   --main-color: #6327fe;
