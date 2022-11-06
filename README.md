@@ -185,3 +185,5 @@ export default class Router {
   }
 }
 ```
+
+### 1.1 URL 파라미터 처리

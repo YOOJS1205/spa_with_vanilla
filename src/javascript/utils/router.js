@@ -4,6 +4,17 @@ export default class Router {
       console.error("Can not initialize routes, need routes!");
     }
     this.routes = routes;
+
+    for (const key in routes) {
+      const route = routes[key];
+      if (key.indexOf(":") > -1) {
+        const [_, routeName, param] = key.split("/");
+        this.routes["/" + routeName] = route;
+        delete this.routes[key];
+      }
+    }
+
+    console.log(this.routes);
   }
 
   init(rootElementId) {
@@ -33,14 +44,18 @@ export default class Router {
   }
 
   routing(pathname) {
-    const [_, routeName, ...param] = pathname.split("/");
+    const [_, routeName, param] = pathname.split("/");
     let page = "";
 
     if (this.routes[pathname]) {
       const component = new this.routes[pathname]();
       // component의 render 메서드
       page = component.render();
+    } else if (param) {
+      const component = new this.routes["/" + routeName](param);
+      page = component.render();
     }
+
     if (page) {
       // Router의 render 메서드
       this.render(page);
