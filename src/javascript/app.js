@@ -12,7 +12,7 @@ export default class App {
     // 라우터 인스턴스
     const router = new Router({
       "/": ProductPage,
-      "/detail": ProductDetail,
+      "/detail/:id": ProductDetail,
     });
 
     router.init(el);

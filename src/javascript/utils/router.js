@@ -28,9 +28,13 @@ export default class Router {
     this.routing(window.location.pathname);
 
     window.addEventListener("click", (e) => {
-      if (e.target.tagName.toLowerCase() === "a") {
+      // if (e.target.tagName.toLowerCase() === "a") {
+      //   e.preventDefault();
+      //   this.routePush(e.target.href);
+      // }
+      if (e.target.closest("a")) {
         e.preventDefault();
-        this.routePush(e.target.href);
+        this.routePush(e.target.closest("a").href);
       }
     });
 
